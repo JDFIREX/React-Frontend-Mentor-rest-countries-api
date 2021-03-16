@@ -1,0 +1,20 @@
+.Nav{
+    background-color: hsl(209, 23%, 22%);
+    border: 1px solid red;
+    @apply w-full px-20 py-6 flex flex-row justify-between items-center;
+    h1{
+        word-spacing: .4rem;
+        @apply font-semibold text-white text-2xl;
+    }
+    button{
+        border: 1px solid red;
+        @apply w-28 bg-transparent flex flex-row items-center justify-start;
+        img{
+            transform: rotateZ(-30deg);
+            @apply ml-1 bg-transparent w-4;
+        }
+        p{
+            @apply ml-2 font-light text-white text-base;
+        }
+    }
+}
