@@ -13,7 +13,9 @@ import Design from "./design/desktop-design-home-dark.jpg"
 
 
 const initalState = {
-    Darkmode : false
+    Darkmode : false,
+    search : "",
+    optionsOpen: false
 }
 
 const reducer = (state, action) => {
@@ -22,6 +24,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 Darkmode: !state.Darkmode
+            }
+        case "SEARCH" :
+            return {
+                ...state,
+                search : action.value
             }
         default : throw new Error();
     }
@@ -47,9 +54,9 @@ const Root = () => {
                     <img src={Design} className="Design" alt="" />
                     <Nav />
                     <Switch>
-                        <Route exact path="/" componets={Main} />
+                        <Route exact path="/" component={Main} />
                         <Route path="/country/:id" />
-                        <Route path="*" componets={Main} />
+                        <Route path="*" component={Main} />
                     </Switch>
                 </React.StrictMode> 
             </Router>

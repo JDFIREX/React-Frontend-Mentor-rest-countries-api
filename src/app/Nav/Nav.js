@@ -8,7 +8,6 @@ const Nav = () => {
 
 
     const {state,dispatch} = useContext(restContext);
-    console.log(state.Darkmode)
 
     return(
         <div className="Nav">

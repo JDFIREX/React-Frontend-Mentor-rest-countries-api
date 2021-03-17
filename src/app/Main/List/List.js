@@ -2,7 +2,6 @@ import React , { useContext } from "react"
 import restContext from "./../../../index"
 
 
-
 const List = () => {
 
     const {state,dispatch} = useContext(restContext);
@@ -10,6 +9,7 @@ const List = () => {
 
     return(
         <div className="List">
+            
         </div>
     )
 }
