@@ -2,6 +2,50 @@ import React , { useContext } from "react"
 import restContext from "./../../../index"
 import searchIcon from "./../../../images/search.svg"
 import arrow from "./../../../images/chevron.svg"
+import check from "./../../../images/check.svg"
+import "./Filtrs.css"
+
+const Options = () => {
+    const {state,dispatch} = useContext(restContext);
+    console.log(state.options)
+
+    return (
+        <div className="Options_filters">
+            <button name="Africa" onClick={(e) => dispatch({type : "FILTER", value : e.target.name})}>
+                Africa
+                {state.options["Africa"].filter && (
+                    <img src={check} alt="check" />
+                )}
+            </button>
+            <button name="Americas" onClick={(e) => dispatch({type : "FILTER", value : e.target.name})}>
+                America
+                {state.options["Americas"].filter && (
+                    <img src={check} alt="check" />
+                )}
+            </button>
+            <button name="Asia" onClick={(e) => dispatch({type : "FILTER", value : e.target.name})}>
+                Asia
+                {state.options["Asia"].filter && (
+                    <img src={check} alt="check" />
+                )}
+            </button>
+            <button name="Europe" onClick={(e) => dispatch({type : "FILTER", value : e.target.name})}>
+                Europe
+                {state.options["Europe"].filter && (
+                    <img src={check} alt="check" />
+                )}
+            </button>
+            <button name="Oceania" onClick={(e) => dispatch({type : "FILTER", value : e.target.name})}>
+                Oceania
+                {state.options["Oceania"].filter && (
+                    <img src={check} alt="check" />
+                )}
+            </button>
+        </div>    
+    )
+}
+
+
 
 const Filtrs = () => {
 
@@ -15,31 +59,15 @@ const Filtrs = () => {
                 <input  value={state.search} onChange={(e) => dispatch({type : "SEARCH", value : e.target.value })} placeholder="Search for a country..."/>
             </div>
             <div className="Options">
-                <div className="Options_container">
+                <div className="Options_container" onClick={() => dispatch({type : "FILTERS"})}>
                     <p>Filter by Region</p>
                     <img src={arrow} alt="options" />
-                    {
-                        state.optionsOpen && (
-                            <div className="Options_filters">
-                                <button>
-                                    Africa
-                                </button>
-                                <button>
-                                    America
-                                </button>
-                                <button>
-                                    Asia
-                                </button>
-                                <button>
-                                    Europe
-                                </button>
-                                <button>
-                                    Oceania
-                                </button>
-                            </div>
-                        )
-                    }
                 </div>
+                {
+                    state.optionsOpen && (
+                        <Options dispatch={dispatch} />
+                    )
+                }
             </div>
         </div>
     )

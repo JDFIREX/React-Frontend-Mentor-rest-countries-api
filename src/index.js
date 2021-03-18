@@ -15,7 +15,28 @@ import Design from "./design/desktop-design-home-dark.jpg"
 const initalState = {
     Darkmode : false,
     search : "",
-    optionsOpen: false
+    optionsOpen: false,
+    options : {
+        "Africa" : {
+            filter : false,
+            name : "Africa"
+        },"Americas" : {
+            filter : false,
+            name : "Americas"
+        },"Asia" : {
+            filter : false,
+            name : "Asia"
+        },"Europe" : {
+            filter : false,
+            name : "Europe"
+        },"Oceania" : {
+            filter : false,
+            name : "Oceania"
+        }
+    },
+    filters : [],
+    country : [],
+    currentSection : 1
 }
 
 const reducer = (state, action) => {
@@ -30,6 +51,34 @@ const reducer = (state, action) => {
                 ...state,
                 search : action.value
             }
+        case "FILTERS" :
+            return {
+                ...state,
+                optionsOpen : !state.optionsOpen
+            }
+        case "FILTER" :
+            let newState = {
+                ...state,
+                options : {
+                    ...state.options,
+                    [action.value] : {
+                        ...state.options[action.value],
+                        filter : !state.options[action.value].filter
+                    }
+                },
+            }
+            newState = {
+                ...newState,
+                filters : [...Object.keys(newState.options).filter( (k) => newState.options[k].filter)]
+            }
+            return {
+                ...newState
+            }
+        case "CREATE" :
+                return {
+                    ...state,
+                    country : action.value
+                }
         default : throw new Error();
     }
 }
@@ -46,6 +95,51 @@ const Root = () => {
             document.querySelector(".body").classList.add("root-DarkMode") : 
             document.querySelector(".body").classList.remove("root-DarkMode"); 
     },[state.Darkmode])
+
+    useEffect(() => {
+        fetch("https://restcountries.eu/rest/v2/all")
+        .then(response => response.json())
+        .then((r) => {
+            let c = r.map((x,b) => {
+
+                let l = x.population;
+                l = l.toString().split("").reverse()
+                let ll = l.length;
+                let lm;
+                if(ll % 3 === 0){
+                    lm = (ll / 3) - 1; 
+                }else if( ll % 3 !== 0 && ll / 3 < 0){
+                    lm = 0;
+                }else {
+                    lm = Math.floor(ll / 3)
+                }
+                for(let i = 1; i <= lm; i++){
+                    l.splice((i * 3 + (i - 1)),0,",")
+                }
+                
+
+                return{
+                    id : b,
+                    name : x.name,
+                    nativeName : x.nativeName,
+                    population : l.reverse().join(""),
+                    region : x.region,
+                    flag : x.flag,
+                    subRegion : x.subregion,
+                    capital : x.capital,
+                    borderCountries : x.borders.map(x => {
+                        return r.filter(a => a.alpha3Code === x && a.name)[0].name
+                    }),
+                    topLevelDomain : x.topLevelDomain[0],
+                    currencies : x.currencies[0].name,
+                    languages : x.languages.map(r => r.name)
+                }
+
+            })
+
+            dispatch({type : "CREATE" , value : c})
+        })
+    },[])
 
     return (
         <restContext.Provider  value={{state, dispatch}}>
