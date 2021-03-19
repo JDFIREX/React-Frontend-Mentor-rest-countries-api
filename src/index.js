@@ -36,6 +36,7 @@ const initalState = {
     },
     filters : [],
     country : [],
+    filtredList : [],
     currentSection : 1
 }
 
@@ -71,13 +72,55 @@ const reducer = (state, action) => {
                 ...newState,
                 filters : [...Object.keys(newState.options).filter( (k) => newState.options[k].filter)]
             }
+            let c;
+            if(newState.filters.length === 0 || newState.filters.length === 5){
+                c = [...newState.country]
+            }else{
+                c = newState.country.filter(a => {
+                    return newState.filters.includes(a.region) ? a : null;
+                })
+            }
+            let l = Math.ceil(c.length / 8)
+            let nl = [];
+
+            for(let i = 0 ; i < l; i++){
+                let nn = []
+                for(let j = 0; j < 8; j++){
+                    if(c[0]){
+                        nn.push(c[0]);
+                        c.shift();
+                    }
+                }
+                nl.push(nn)
+            }
+            newState = {
+                ...newState,
+                filtredList : nl
+            }
             return {
                 ...newState
             }
         case "CREATE" :
-                return {
+                let cnewState = {
                     ...state,
-                    country : action.value
+                    country : action.value,
+                }
+                let cc = [...cnewState.country];
+                let ll = Math.ceil(cc.length / 8)
+                let nll = [];
+                for(let i = 0 ; i < ll; i++){
+                    let nn = []
+                    for(let j = 0; j < 8; j++){
+                        if(cc[0]){
+                            nn.push(cc[0]);
+                            cc.shift();
+                        }
+                    }
+                    nll.push(nn)
+                }
+                return {
+                    ...cnewState,
+                    filtredList : nll
                 }
         default : throw new Error();
     }

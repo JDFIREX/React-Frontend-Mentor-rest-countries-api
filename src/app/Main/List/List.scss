@@ -1,0 +1,43 @@
+.List{
+    @apply w-full relative top-12;
+    .List_section{
+        border: 1px solid yellow;
+        @apply w-full flex flex-row flex-wrap justify-between items-start px-16;
+        .List_item{
+            border: 1px solid yellow;
+            width: 16.5rem;
+            height: 21rem;
+            @apply mx-3 mb-16 rounded-md;
+            .item_flag{
+                height: 9.75rem;
+                @apply w-full opacity-60;
+            }
+            .item_header{
+                border: 1px solid blue;
+                height: calc(21rem - 9.75rem);
+                @apply w-full overflow-y-auto;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1450px){
+    .List{
+        .List_section{
+            .List_item{
+                width: 17vw;
+                margin: 0 1vw 3.889vw 1vw;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1920px){
+    .List{
+        .List_section{
+            .List_item{
+                width: 23rem;
+                margin: 0 1rem 5rem 1rem;
+            }
+        }
+    }
+}
