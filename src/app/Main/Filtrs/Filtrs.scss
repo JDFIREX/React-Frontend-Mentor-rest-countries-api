@@ -26,9 +26,11 @@
             background-color: hsl(209, 23%, 22%);
             @apply flex flex-row justify-between items-center w-full h-full pl-6 pr-4 z-0 rounded-md;
             img{
+                pointer-events: none;
                 @apply w-4 pl-1 pb-1;
             }
             p{
+                pointer-events: none;
                 @apply text-white font-light;
             }
             &:focus{

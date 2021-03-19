@@ -6,7 +6,7 @@
             width: 16.5rem;
             height: 21rem;
             background-color: hsl(209, 23%, 22%);
-            @apply mx-3 mb-16 rounded-md shadow-lg;
+            @apply mx-4 mb-16 rounded-md shadow-lg;
             .item_flag{
                 height: 9.75rem;
                 @apply w-full rounded-t-lg;
@@ -26,6 +26,32 @@
             }
         }
     }
+    .Slider{
+        @apply w-full absolute -top-10 px-20 h-8 flex flex-row justify-between items-center;
+
+        .Slider-left,.Slider-right{
+            border: none;
+            @apply w-32 h-full bg-transparent flex items-center justify-center;
+            img{
+                @apply w-3;
+            }
+            &:focus{
+                background-color: hsl(209, 23%, 22%);
+                outline: 1px solid hsl(200, 15%, 8%);
+            }
+        }
+        .Slider-dots{
+            @apply w-auto flex flex-row px-1 py-1;
+
+            div{
+                @apply w-2 h-2 bg-white rounded-full mx-1;
+            }
+            .currentDot{
+                @apply bg-red-400;
+            }
+        }
+    }
+
 }
 
 @media only screen and (min-width: 1450px){

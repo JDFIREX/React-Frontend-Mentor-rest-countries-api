@@ -1,5 +1,5 @@
 import React, {useContext} from "react"
-import restContext from "./../../index"
+import {restContext} from "./../../Reducer"
 import LightMoon from "./../../images/LightMoon.svg"
 import DarkMoon from "./../../images/DarkMoon.svg"
 import "./Nav.css"

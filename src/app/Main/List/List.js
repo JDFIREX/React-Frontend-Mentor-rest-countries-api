@@ -1,7 +1,8 @@
 import React , { useContext, useEffect, useState } from "react"
-import restContext from "./../../../index"
+import {restContext} from "./../../../Reducer"
 import "./List.css"
-
+import SLeft from "./../../../images/angle-left.svg"
+import SRight from "./../../../images/angle-right.svg"
 
 const Items = () => {
     const {state,dispatch} = useContext(restContext);
@@ -68,14 +69,38 @@ const Items = () => {
 }
 
 
+const Slider = () => {
+    const {state,dispatch} = useContext(restContext);
+
+    return (
+        <div className="Slider">
+            <button className="Slider-left" onClick={() => dispatch({type : "LISTLEFT"})}>
+                <img src={SLeft} alt="slider left" />
+            </button>
+            <div className="Slider-dots">
+                {
+                    state.filtredList.map((a,b) => {
+                        return (
+                            <div className={state.currentSection === b ? "dot currentDot" : "dot"} key={b}>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            <button className="Slider-right" onClick={() => dispatch({type : "LISTRIGHT"})}>
+                <img src={SRight} alt="slider left" />
+            </button>
+        </div>
+    )
+}
+
 
 const List = () => {
 
     return(
         <div className="List">
-            <>
-                <Items/>
-            </>
+            <Slider />
+            <Items/>
         </div>
     )
 }
