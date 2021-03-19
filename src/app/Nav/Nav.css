@@ -1,6 +1,5 @@
 .Nav {
   background-color: #2b3945;
-  border: 1px solid red;
   @apply w-full px-20 py-6 flex flex-row justify-between items-center;
 }
 
@@ -10,7 +9,7 @@
 }
 
 .Nav button {
-  border: 1px solid red;
+  border: none;
   @apply w-28 bg-transparent flex flex-row items-center justify-start;
 }
 
@@ -22,5 +21,9 @@
 
 .Nav button p {
   @apply ml-2 font-light text-white text-base;
+}
+
+.Nav button:focus {
+  outline: 1px solid #111517;
 }
 /*# sourceMappingURL=Nav.css.map */

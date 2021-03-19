@@ -7,7 +7,6 @@ import "./Filtrs.css"
 
 const Options = () => {
     const {state,dispatch} = useContext(restContext);
-    console.log(state.options)
 
     return (
         <div className="Options_filters">
@@ -59,10 +58,10 @@ const Filtrs = () => {
                 <input  value={state.search} onChange={(e) => dispatch({type : "SEARCH", value : e.target.value })} placeholder="Search for a country..."/>
             </div>
             <div className="Options">
-                <div className="Options_container" onClick={() => dispatch({type : "FILTERS"})}>
+                <button className="Options_container" onClick={() => dispatch({type : "FILTERS"})}>
                     <p>Filter by Region</p>
                     <img src={arrow} alt="options" />
-                </div>
+                </button>
                 {
                     state.optionsOpen && (
                         <Options dispatch={dispatch} />

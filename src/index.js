@@ -5,12 +5,35 @@ import {
     Switch,
     Route
   } from "react-router-dom";
-
-import "./index.css"
-import Nav from "./app/Nav/Nav"
-import Main from "./app/Main/Main"
 import Design from "./design/desktop-design-home-dark.jpg"
+import "./index.css"
+const Nav = React.lazy(() => import('./app/Nav/Nav'));
+const Main = React.lazy(() => import('./app/Main/Main'));
 
+const FilterCountry = (newState) => {
+    let c;
+    if(newState.filters.length === 0 || newState.filters.length === 5){
+        c = [...newState.country]
+    }else{
+        c = newState.country.filter(a => {
+            return newState.filters.includes(a.region) ? a : null;
+        })
+    }
+    let l = Math.ceil(c.length / 8)
+    let nl = [];
+
+    for(let i = 0 ; i < l; i++){
+        let nn = []
+        for(let j = 0; j < 8; j++){
+            if(c[0]){
+                nn.push(c[0]);
+                c.shift();
+            }
+        }
+        nl.push(nn)
+    }
+    return nl;
+}
 
 const initalState = {
     Darkmode : false,
@@ -37,7 +60,7 @@ const initalState = {
     filters : [],
     country : [],
     filtredList : [],
-    currentSection : 1
+    currentSection : 0
 }
 
 const reducer = (state, action) => {
@@ -72,27 +95,9 @@ const reducer = (state, action) => {
                 ...newState,
                 filters : [...Object.keys(newState.options).filter( (k) => newState.options[k].filter)]
             }
-            let c;
-            if(newState.filters.length === 0 || newState.filters.length === 5){
-                c = [...newState.country]
-            }else{
-                c = newState.country.filter(a => {
-                    return newState.filters.includes(a.region) ? a : null;
-                })
-            }
-            let l = Math.ceil(c.length / 8)
-            let nl = [];
+            
+            let nl = FilterCountry(newState)
 
-            for(let i = 0 ; i < l; i++){
-                let nn = []
-                for(let j = 0; j < 8; j++){
-                    if(c[0]){
-                        nn.push(c[0]);
-                        c.shift();
-                    }
-                }
-                nl.push(nn)
-            }
             newState = {
                 ...newState,
                 filtredList : nl
@@ -105,22 +110,10 @@ const reducer = (state, action) => {
                     ...state,
                     country : action.value,
                 }
-                let cc = [...cnewState.country];
-                let ll = Math.ceil(cc.length / 8)
-                let nll = [];
-                for(let i = 0 ; i < ll; i++){
-                    let nn = []
-                    for(let j = 0; j < 8; j++){
-                        if(cc[0]){
-                            nn.push(cc[0]);
-                            cc.shift();
-                        }
-                    }
-                    nll.push(nn)
-                }
+                let cc = FilterCountry(cnewState)
                 return {
                     ...cnewState,
-                    filtredList : nll
+                    filtredList : cc
                 }
         default : throw new Error();
     }
@@ -185,19 +178,21 @@ const Root = () => {
     },[])
 
     return (
-        <restContext.Provider  value={{state, dispatch}}>
-            <Router>
-                <React.StrictMode>
-                    <img src={Design} className="Design" alt="" />
-                    <Nav />
-                    <Switch>
-                        <Route exact path="/" component={Main} />
-                        <Route path="/country/:id" />
-                        <Route path="*" component={Main} />
-                    </Switch>
-                </React.StrictMode> 
-            </Router>
-        </restContext.Provider>
+        <React.Suspense fallback={<h1>loading...</h1>}>
+            <restContext.Provider  value={{state, dispatch}}>
+                <Router>
+                    <React.StrictMode>
+                        <img src={Design} className="Design" alt="" />
+                        <Nav />
+                        <Switch>
+                            <Route exact path="/" component={Main} />
+                            <Route path="/country/:id" />
+                            <Route path="*" component={Main} />
+                        </Switch>
+                    </React.StrictMode> 
+                </Router>
+            </restContext.Provider>
+        </React.Suspense>
     )
 
 }

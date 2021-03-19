@@ -1,34 +1,15 @@
-import React , { useContext } from "react"
+import React , { useContext, useEffect, useState } from "react"
 import restContext from "./../../../index"
 import "./List.css"
 
 
-const Items = ({list}) => {
+const Items = () => {
+    const {state,dispatch} = useContext(restContext);
+    const [list, setList] = useState(state.filtredList);
 
-    // console.log(list)
-
-    // let c;
-    // if(filters.length === 0 || filters.length === 5){
-    //     c = [...list]
-    // }else{
-    //     c = list.filter(a => {
-    //         return filters.includes(a.region) ? a : null;
-    //     })
-    // }
-
-    // let l = Math.ceil(c.length / 8)
-    // let nl = [];
-
-    // for(let i = 0 ; i < l; i++){
-    //     let nn = []
-    //     for(let j = 0; j < 8; j++){
-    //         if(c[0]){
-    //             nn.push(c[0]);
-    //             c.shift();
-    //         }
-    //     }
-    //     nl.push(nn)
-    // }
+    useEffect(() =>{
+        setList(state.filtredList[state.currentSection])
+    },[state.filtredList,state.currentSection])
 
     return (
         <>
@@ -60,6 +41,28 @@ const Items = ({list}) => {
                     )
                 })
             } */}
+            <div className="List_section" key={state.currentSection}>
+            {
+                list && list.map(x => {
+                    return (
+                        <div key={x.id} className="List_item" data-id={x.id}>
+                            <div className="item_flag" style={{
+                                backgroundImage : `url(${x.flag})`,
+                                backgroundRepeat : "no-repeat",
+                                backgroundSize : "cover",
+                                backgroundPosition : "center"
+                            }} ></div>
+                            <div className="item_header">
+                                <h1>{x.name}</h1>
+                                <p>Population: <span>{x.population}</span> </p>
+                                <p>Region: <span>{x.region}</span> </p>
+                                <p>Capital: <span>{x.capital}</span> </p>
+                            </div>
+                        </div>
+                    )
+                })
+            }
+            </div>
         </>
     )
 }
@@ -68,16 +71,11 @@ const Items = ({list}) => {
 
 const List = () => {
 
-    const {state,dispatch} = useContext(restContext);
-    console.log(state.filtredList, state.filters)
-
     return(
         <div className="List">
-            <React.Suspense  fallback="loading">
-                {
-                    <Items list={state.filtredList} />
-                }
-            </React.Suspense>
+            <>
+                <Items/>
+            </>
         </div>
     )
 }
