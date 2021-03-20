@@ -1,0 +1,78 @@
+.Country{
+    @apply relative w-full px-20 pb-20;
+
+    .back{
+        border: none;
+        background-color: hsl(209, 23%, 22%);
+        width: 8.5rem;
+        height: 2.5rem;
+        @apply mt-20 flex flex-row items-center justify-center rounded-md shadow-md z-10;
+        &:focus{
+            outline: 1px solid hsl(200, 15%, 8%);
+        }
+        img{
+            @apply -ml-2 mr-4;
+            width: 1.35rem;
+        }
+        p{
+            @apply text-white text-base font-semibold;
+            text-decoration: none;
+            border: none;
+        }
+    }
+    .Country_main{
+        @apply w-full mt-20 flex flex-row justify-start items-start;
+        .Country_flag{
+            width: 35rem;
+            height: 25rem;
+            @apply opacity-60;
+        }
+        .Country_info{
+            width: 36rem;
+            @apply flex flex-col items-start justify-start ml-36;
+            .header{
+                @apply w-full mt-10;
+                h1{
+                    @apply text-white font-semibold text-4xl mb-7;
+                }
+            }
+            .info{
+                @apply w-full flex flex-row justify-between items-start;
+                .info_left{
+                    width: 16rem;
+                    p{
+                        @apply text-white text-base font-semibold mb-2 flex flex-row flex-wrap items-center;
+                        span{
+                            @apply text-sm font-light text-white ml-1;
+                        }
+                    }
+                }
+                .info_right{
+                    width: 15.75rem;
+                    p{
+                        @apply text-white text-base font-semibold mb-2 flex flex-row flex-wrap items-center;
+                        span{
+                            @apply text-sm font-light text-white ml-1;
+                        }
+                    } 
+                }
+            }
+            .Country_bordes{
+                @apply mt-14 w-full flex flex-row flex-wrap justify-start items-center;
+                .borders{
+                    width: 8.5rem;
+                    @apply text-white text-base font-semibold mb-2;
+                }
+                .border{
+                    background-color: hsl(209, 23%, 22%);
+                    border-radius: 3px;
+                    @apply items-center px-7 opacity-60 py-1 mx-2 shadow-md mb-2;
+                    .border_p{
+                        border: none;
+                        @apply text-white text-sm font-light;
+                    }
+                }
+            }
+        }
+    }
+}

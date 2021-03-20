@@ -67,8 +67,7 @@ const Options = () => {
 const Filtrs = () => {
 
     const {state,dispatch} = useContext(restContext);
-    console.log(state.search)
-
+    
     return(
         <div className="Filtrs">
             <div className="Search">

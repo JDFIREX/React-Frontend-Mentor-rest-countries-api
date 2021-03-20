@@ -1,4 +1,4 @@
-import React from "react"
+import React , {useReducer} from "react"
 
 const FilterCountry = (newState) => {
     let c;
@@ -57,7 +57,6 @@ const FliterCountryBySearch = (newState) => {
             nl.push(nn)
         }
     }
-    console.log(nl)
     return nl;
 }
 
@@ -128,7 +127,7 @@ const reducer = (state, action) => {
                 filters : [...Object.keys(newState.options).filter( (k) => newState.options[k].filter)]
             }
             
-            let nl = FilterCountry(newState)
+            let nl = FliterCountryBySearch(newState)
 
             newState = {
                 ...newState,
@@ -170,5 +169,7 @@ const reducer = (state, action) => {
     }
 }
 const restContext = React.createContext();
+
+
 
 export {initalState,reducer,restContext }

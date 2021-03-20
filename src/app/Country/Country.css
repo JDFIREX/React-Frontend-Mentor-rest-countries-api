@@ -1,1 +1,98 @@
-/* No CSS *//*# sourceMappingURL=Country.css.map */
+.Country {
+  @apply relative w-full px-20 pb-20;
+}
+
+.Country .back {
+  border: none;
+  background-color: #2b3945;
+  width: 8.5rem;
+  height: 2.5rem;
+  @apply mt-20 flex flex-row items-center justify-center rounded-md shadow-md z-10;
+}
+
+.Country .back:focus {
+  outline: 1px solid #111517;
+}
+
+.Country .back img {
+  @apply -ml-2 mr-4;
+  width: 1.35rem;
+}
+
+.Country .back p {
+  @apply text-white text-base font-semibold;
+  text-decoration: none;
+  border: none;
+}
+
+.Country .Country_main {
+  @apply w-full mt-20 flex flex-row justify-start items-start;
+}
+
+.Country .Country_main .Country_flag {
+  width: 35rem;
+  height: 25rem;
+  @apply opacity-60;
+}
+
+.Country .Country_main .Country_info {
+  width: 36rem;
+  @apply flex flex-col items-start justify-start ml-36;
+}
+
+.Country .Country_main .Country_info .header {
+  @apply w-full mt-10;
+}
+
+.Country .Country_main .Country_info .header h1 {
+  @apply text-white font-semibold text-4xl mb-7;
+}
+
+.Country .Country_main .Country_info .info {
+  @apply w-full flex flex-row justify-between items-start;
+}
+
+.Country .Country_main .Country_info .info .info_left {
+  width: 16rem;
+}
+
+.Country .Country_main .Country_info .info .info_left p {
+  @apply text-white text-base font-semibold mb-2 flex flex-row flex-wrap items-center;
+}
+
+.Country .Country_main .Country_info .info .info_left p span {
+  @apply text-sm font-light text-white ml-1;
+}
+
+.Country .Country_main .Country_info .info .info_right {
+  width: 15.75rem;
+}
+
+.Country .Country_main .Country_info .info .info_right p {
+  @apply text-white text-base font-semibold mb-2 flex flex-row flex-wrap items-center;
+}
+
+.Country .Country_main .Country_info .info .info_right p span {
+  @apply text-sm font-light text-white ml-1;
+}
+
+.Country .Country_main .Country_info .Country_bordes {
+  @apply mt-14 w-full flex flex-row flex-wrap justify-start items-center;
+}
+
+.Country .Country_main .Country_info .Country_bordes .borders {
+  width: 8.5rem;
+  @apply text-white text-base font-semibold mb-2;
+}
+
+.Country .Country_main .Country_info .Country_bordes .border {
+  background-color: #2b3945;
+  border-radius: 3px;
+  @apply items-center px-7 opacity-60 py-1 mx-2 shadow-md mb-2;
+}
+
+.Country .Country_main .Country_info .Country_bordes .border .border_p {
+  border: none;
+  @apply text-white text-sm font-light;
+}
+/*# sourceMappingURL=Country.css.map */

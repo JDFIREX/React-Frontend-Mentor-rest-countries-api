@@ -1,21 +1,21 @@
-import React, { useReducer,useEffect} from "react"
+import React, { useReducer,useEffect, useState} from "react"
 import ReactDOM from "react-dom"
 import {
     BrowserRouter as Router,
     Switch,
     Route
   } from "react-router-dom";
-import Design from "./design/desktop-design-home-dark.jpg"
+import Design from "./design/desktop-design-detail-dark.jpg"
 import "./index.css"
 import {initalState,reducer,restContext } from "./Reducer.js"
 const Nav = React.lazy(() => import('./app/Nav/Nav'));
 const Main = React.lazy(() => import('./app/Main/Main'));
-
+const Country = React.lazy(() => import("./app/Country/Country"))
 
 
 const Root = () => {
     
-
+    const [loading, setLoading] = useState(true)
     const [state,dispatch] = useReducer(reducer,initalState)
 
     useEffect(() => {
@@ -66,24 +66,29 @@ const Root = () => {
             })
 
             dispatch({type : "CREATE" , value : c})
+            setLoading(false)
         })
     },[])
 
     return (
         <React.Suspense fallback={<h1>loading...</h1>}>
-            <restContext.Provider  value={{state, dispatch}}>
-                <Router>
-                    <React.StrictMode>
-                        <img src={Design} className="Design" alt="" />
-                        <Nav />
-                        <Switch>
-                            <Route exact path="/" component={Main} />
-                            <Route path="/country/:id" />
-                            <Route path="*" component={Main} />
-                        </Switch>
-                    </React.StrictMode> 
-                </Router>
-            </restContext.Provider>
+        {
+            !loading && (
+                <restContext.Provider  value={{state, dispatch}}>
+                    <Router>
+                        <React.StrictMode>
+                            <img src={Design} className="Design" alt="" />
+                            <Nav />
+                            <Switch>
+                                <Route exact path="/" component={Main} />
+                                <Route path="/country/:id" component={Country} />
+                                <Route path="*" component={Main} />
+                            </Switch>
+                        </React.StrictMode> 
+                    </Router>
+                </restContext.Provider>
+            )
+        }
         </React.Suspense>
     )
 
