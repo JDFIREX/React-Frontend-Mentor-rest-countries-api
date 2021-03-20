@@ -25,7 +25,6 @@
         .Country_flag{
             width: 35rem;
             height: 25rem;
-            @apply opacity-60;
         }
         .Country_info{
             width: 36rem;
@@ -66,10 +65,61 @@
                 .border{
                     background-color: hsl(209, 23%, 22%);
                     border-radius: 3px;
-                    @apply items-center px-7 opacity-60 py-1 mx-2 shadow-md mb-2;
+                    @apply items-center px-7 py-1 mx-2 shadow-md mb-2;
                     .border_p{
                         border: none;
                         @apply text-white text-sm font-light;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.DarkCountry{
+    .back{
+        background-color: hsl(0, 0%, 100%);
+        &:focus{
+            outline: 1px solid hsl(200, 15%, 8%);
+        }
+        p{
+            @apply text-white text-base font-semibold;
+        }
+    }
+    .Country_main{
+        .Country_info{
+            .header{
+                h1{
+                    color : hsl(200, 15%, 8%);
+                }
+            }
+            .info{
+                .info_left{
+                    p{
+                        color : hsl(200, 15%, 8%);
+                        span{
+                            color : hsl(200, 15%, 8%);
+                        }
+                    }
+                }
+                .info_right{
+                    p{
+                        color : hsl(200, 15%, 8%);
+                        span{
+                            color : hsl(200, 15%, 8%);
+                        }
+                    }
+                }
+            }
+            .Country_bordes{
+                .borders{
+                    color : hsl(200, 15%, 8%);
+                }
+                .border{
+                    background-color: hsl(0, 0%, 100%);
+                    @apply shadow-lg;
+                    .border_p{
+                        color : hsl(200, 15%, 8%);
                     }
                 }
             }

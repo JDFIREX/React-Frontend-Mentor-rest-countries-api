@@ -1,0 +1,142 @@
+.root-DarkMode{
+    background-color: hsl(0, 0%, 98%);
+
+    .root{
+        .Nav{
+            background-color: hsl(0, 0%, 100%);
+            h1{
+                color : hsl(200, 15%, 8%)
+            }
+            button{
+                p{
+                    color : hsl(200, 15%, 8%);
+                }
+                &:focus{
+                    outline: 1px solid hsl(200, 15%, 8%);
+                }
+            }
+        }
+        .Main{
+            .Filtrs{
+                .Search{
+                    background-color: hsl(0, 0%, 100%);
+                    input{
+                        color : hsl(200, 15%, 8%);
+                        &::placeholder{
+                            color : hsl(0, 0%, 52%);
+
+                        }
+                        &:focus{
+                            outline: 1px solid hsl(200, 15%, 8%);
+                        }
+                    }
+                } 
+                .Options{
+                    .Options_container{
+                        background-color: hsl(0, 0%, 100%);
+                        p{
+                            color : hsl(200, 15%, 8%);
+                        }
+                        &:focus{
+                            outline: 1px solid hsl(200, 15%, 8%);
+                        }
+                    }
+                    .Options_filters {
+                        background-color: hsl(0, 0%, 100%);
+                        button{
+                            color : hsl(200, 15%, 8%);
+                            &:focus{
+                                outline: 1px solid hsl(200, 15%, 8%);
+                            }
+                        }
+                    }
+                }
+            }
+            .List{
+                .List_section{
+                    .List_item{
+                        background-color: hsl(0, 0%, 100%);
+                        .item_header{
+                            h1{
+                                color : hsl(200, 15%, 8%);
+                            }
+                            p{
+                                color : hsl(200, 15%, 8%);
+                                span{
+                                    color : hsl(200, 15%, 8%);
+                                }
+                            }
+                        }
+                    }
+                }
+                .Slider{
+                    .Slider-left,.Slider-right{
+                        &:focus{
+                            outline: 1px solid hsl(200, 15%, 8%);
+                        }
+                    }
+                    .Slider-dots{
+                        div{
+                            border: 1px solid hsl(200, 15%, 8%);
+                            background-color: hsl(0, 0%, 100%);
+                        }
+                        .currentDot{
+                            @apply bg-red-400;
+                        }
+                    }
+                }
+            
+            }
+        }
+        .Country{
+            .back{
+                background-color: hsl(0, 0%, 100%);
+                &:focus{
+                    outline: 1px solid hsl(200, 15%, 8%);
+                }
+                p{
+                    color : hsl(200, 15%, 8%);
+                }
+            }
+            .Country_main{
+                .Country_info{
+                    .header{
+                        h1{
+                            color : hsl(200, 15%, 8%);
+                        }
+                    }
+                    .info{
+                        .info_left{
+                            p{
+                                color : hsl(200, 15%, 8%);
+                                span{
+                                    color : hsl(200, 15%, 8%);
+                                }
+                            }
+                        }
+                        .info_right{
+                            p{
+                                color : hsl(200, 15%, 8%);
+                                span{
+                                    color : hsl(200, 15%, 8%);
+                                }
+                            }
+                        }
+                    }
+                    .Country_bordes{
+                        .borders{
+                            color : hsl(200, 15%, 8%);
+                        }
+                        .border{
+                            background-color: hsl(0, 0%, 100%);
+                            @apply shadow-lg;
+                            .border_p{
+                                color : hsl(200, 15%, 8%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

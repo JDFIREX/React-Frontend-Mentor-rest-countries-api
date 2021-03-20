@@ -6,7 +6,7 @@ import {
 import {restContext} from "./../../Reducer"
 import "./Country.css"
 import BackArrow from "./../../images/BackArrow.svg"
-
+import BlackBackArrow from "./../../images/BlackBackArrow.svg"
 
 
 
@@ -27,7 +27,7 @@ const Country = () => {
                 <div className="Country" key={CurrentCountry.id}>
                     <Link to="/" >
                         <div className="back">
-                            <img src={BackArrow} alt="Back" />
+                            <img src={state.Darkmode ? BlackBackArrow : BackArrow} alt="Back" />
                             <p>Back</p>
                         </div>
                     </Link>

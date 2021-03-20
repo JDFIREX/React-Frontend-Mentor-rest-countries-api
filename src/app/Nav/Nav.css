@@ -1,6 +1,6 @@
 .Nav {
   background-color: #2b3945;
-  @apply w-full px-20 py-6 flex flex-row justify-between items-center;
+  @apply w-full px-20 py-6 flex flex-row justify-between items-center shadow-lg;
 }
 
 .Nav h1 {

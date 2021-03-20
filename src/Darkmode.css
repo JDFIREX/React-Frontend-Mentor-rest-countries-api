@@ -1,0 +1,146 @@
+.root-DarkMode {
+  background-color: #fafafa;
+}
+
+.root-DarkMode .root .Nav {
+  background-color: white;
+}
+
+.root-DarkMode .root .Nav h1 {
+  color: #111517;
+}
+
+.root-DarkMode .root .Nav button p {
+  color: #111517;
+}
+
+.root-DarkMode .root .Nav button:focus {
+  outline: 1px solid #111517;
+}
+
+.root-DarkMode .root .Main .Filtrs .Search {
+  background-color: white;
+}
+
+.root-DarkMode .root .Main .Filtrs .Search input {
+  color: #111517;
+}
+
+.root-DarkMode .root .Main .Filtrs .Search input::-webkit-input-placeholder {
+  color: #858585;
+}
+
+.root-DarkMode .root .Main .Filtrs .Search input:-ms-input-placeholder {
+  color: #858585;
+}
+
+.root-DarkMode .root .Main .Filtrs .Search input::-ms-input-placeholder {
+  color: #858585;
+}
+
+.root-DarkMode .root .Main .Filtrs .Search input::placeholder {
+  color: #858585;
+}
+
+.root-DarkMode .root .Main .Filtrs .Search input:focus {
+  outline: 1px solid #111517;
+}
+
+.root-DarkMode .root .Main .Filtrs .Options .Options_container {
+  background-color: white;
+}
+
+.root-DarkMode .root .Main .Filtrs .Options .Options_container p {
+  color: #111517;
+}
+
+.root-DarkMode .root .Main .Filtrs .Options .Options_container:focus {
+  outline: 1px solid #111517;
+}
+
+.root-DarkMode .root .Main .Filtrs .Options .Options_filters {
+  background-color: white;
+}
+
+.root-DarkMode .root .Main .Filtrs .Options .Options_filters button {
+  color: #111517;
+}
+
+.root-DarkMode .root .Main .Filtrs .Options .Options_filters button:focus {
+  outline: 1px solid #111517;
+}
+
+.root-DarkMode .root .Main .List .List_section .List_item {
+  background-color: white;
+}
+
+.root-DarkMode .root .Main .List .List_section .List_item .item_header h1 {
+  color: #111517;
+}
+
+.root-DarkMode .root .Main .List .List_section .List_item .item_header p {
+  color: #111517;
+}
+
+.root-DarkMode .root .Main .List .List_section .List_item .item_header p span {
+  color: #111517;
+}
+
+.root-DarkMode .root .Main .List .Slider .Slider-left:focus, .root-DarkMode .root .Main .List .Slider .Slider-right:focus {
+  outline: 1px solid #111517;
+}
+
+.root-DarkMode .root .Main .List .Slider .Slider-dots div {
+  border: 1px solid #111517;
+  background-color: white;
+}
+
+.root-DarkMode .root .Main .List .Slider .Slider-dots .currentDot {
+  @apply bg-red-400;
+}
+
+.root-DarkMode .root .Country .back {
+  background-color: white;
+}
+
+.root-DarkMode .root .Country .back:focus {
+  outline: 1px solid #111517;
+}
+
+.root-DarkMode .root .Country .back p {
+  color: #111517;
+}
+
+.root-DarkMode .root .Country .Country_main .Country_info .header h1 {
+  color: #111517;
+}
+
+.root-DarkMode .root .Country .Country_main .Country_info .info .info_left p {
+  color: #111517;
+}
+
+.root-DarkMode .root .Country .Country_main .Country_info .info .info_left p span {
+  color: #111517;
+}
+
+.root-DarkMode .root .Country .Country_main .Country_info .info .info_right p {
+  color: #111517;
+}
+
+.root-DarkMode .root .Country .Country_main .Country_info .info .info_right p span {
+  color: #111517;
+}
+
+.root-DarkMode .root .Country .Country_main .Country_info .Country_bordes .borders {
+  color: #111517;
+}
+
+.root-DarkMode .root .Country .Country_main .Country_info .Country_bordes .border {
+  background-color: white;
+  @apply shadow-lg;
+}
+
+.root-DarkMode .root .Country .Country_main .Country_info .Country_bordes .border .border_p {
+  color: #111517;
+}
+/*# sourceMappingURL=Darkmode.css.map */

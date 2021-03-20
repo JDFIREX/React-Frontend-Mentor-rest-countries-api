@@ -7,6 +7,7 @@ import {
   } from "react-router-dom";
 import Design from "./design/desktop-design-detail-dark.jpg"
 import "./index.css"
+import "./Darkmode.css"
 import {initalState,reducer,restContext } from "./Reducer.js"
 const Nav = React.lazy(() => import('./app/Nav/Nav'));
 const Main = React.lazy(() => import('./app/Main/Main'));

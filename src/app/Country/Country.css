@@ -32,7 +32,6 @@
 .Country .Country_main .Country_flag {
   width: 35rem;
   height: 25rem;
-  @apply opacity-60;
 }
 
 .Country .Country_main .Country_info {
@@ -88,11 +87,56 @@
 .Country .Country_main .Country_info .Country_bordes .border {
   background-color: #2b3945;
   border-radius: 3px;
-  @apply items-center px-7 opacity-60 py-1 mx-2 shadow-md mb-2;
+  @apply items-center px-7 py-1 mx-2 shadow-md mb-2;
 }
 
 .Country .Country_main .Country_info .Country_bordes .border .border_p {
   border: none;
   @apply text-white text-sm font-light;
+}
+
+.DarkCountry .back {
+  background-color: white;
+}
+
+.DarkCountry .back:focus {
+  outline: 1px solid #111517;
+}
+
+.DarkCountry .back p {
+  @apply text-white text-base font-semibold;
+}
+
+.DarkCountry .Country_main .Country_info .header h1 {
+  color: #111517;
+}
+
+.DarkCountry .Country_main .Country_info .info .info_left p {
+  color: #111517;
+}
+
+.DarkCountry .Country_main .Country_info .info .info_left p span {
+  color: #111517;
+}
+
+.DarkCountry .Country_main .Country_info .info .info_right p {
+  color: #111517;
+}
+
+.DarkCountry .Country_main .Country_info .info .info_right p span {
+  color: #111517;
+}
+
+.DarkCountry .Country_main .Country_info .Country_bordes .borders {
+  color: #111517;
+}
+
+.DarkCountry .Country_main .Country_info .Country_bordes .border {
+  background-color: white;
+  @apply shadow-lg;
+}
+
+.DarkCountry .Country_main .Country_info .Country_bordes .border .border_p {
+  color: #111517;
 }
 /*# sourceMappingURL=Country.css.map */
