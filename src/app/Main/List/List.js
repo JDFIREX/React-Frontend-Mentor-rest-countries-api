@@ -40,13 +40,16 @@ const Items = () => {
         <div className="List_section">
             {
                 list && list.map((x,b) => {
-                    let id = x.id;
+                    let id;
+                    if(x){
+                        id = x.id;  
+                    }
                     if(id || id === 0){
                         return (
                             <ListItem key={id} x={x} />
                         )
                     }else{
-                        return <div key={b}></div>;
+                        return <div key={b + 1000}></div>;
                     }
                 })
             }

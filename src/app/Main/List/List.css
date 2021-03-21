@@ -3,14 +3,20 @@
 }
 
 .List .List_section {
-  @apply w-full flex flex-row flex-wrap justify-between items-start px-16;
+  @apply w-full px-20 grid justify-between;
+  -webkit-column-gap: 2%;
+          column-gap: 2%;
+  -ms-grid-columns: (16.5rem)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 16.5rem);
+  -ms-grid-rows: (25rem)[auto-fit];
+      grid-template-rows: repeat(auto-fit, 25rem);
 }
 
 .List .List_section .List_item {
   width: 16.5rem;
   height: 21rem;
   background-color: #2b3945;
-  @apply mx-4 mb-16 rounded-md shadow-lg;
+  @apply mb-16 rounded-md shadow-lg;
 }
 
 .List .List_section .List_item .item_flag {
@@ -40,8 +46,8 @@
 }
 
 .List .Slider .Slider-left, .List .Slider .Slider-right {
-  border: none;
-  @apply w-32 h-full bg-transparent flex items-center justify-center;
+  border: 1px solid #111517;
+  @apply w-32 h-full bg-transparent flex items-center justify-center rounded-lg;
 }
 
 .List .Slider .Slider-left img, .List .Slider .Slider-right img {
@@ -66,26 +72,105 @@
 }
 
 @media only screen and (min-width: 1450px) {
+  .List .List_section {
+    -ms-grid-columns: (18vw)[4];
+        grid-template-columns: repeat(4, 18vw);
+    -ms-grid-rows: (25rem)[2];
+        grid-template-rows: repeat(2, 25rem);
+  }
   .List .List_section .List_item {
-    width: 17vw;
-    margin: 0 1vw 3.889vw 1vw;
+    width: 18vw;
   }
 }
 
 @media only screen and (min-width: 1920px) {
   .List .List_section {
-    @apply px-12;
+    -ms-grid-columns: (20rem)[4];
+        grid-template-columns: repeat(4, 20rem);
+    -ms-grid-rows: (27rem)[2];
+        grid-template-rows: repeat(2, 27rem);
   }
   .List .List_section .List_item {
     width: 20rem;
     height: 23rem;
-    margin: 0 2.2rem 5rem 2.2rem;
   }
   .List .List_section .List_item .item_flag {
     height: 10.75rem;
   }
   .List .List_section .List_item .item_header {
     height: calc(23rem - 10.75rem);
+  }
+}
+
+@media only screen and (max-width: 984px) {
+  .List .List_section {
+    padding: 0 5vw;
+  }
+  .List .Slider {
+    padding: 0 5vw;
+  }
+}
+
+@media only screen and (max-width: 916px) {
+  .List .List_section {
+    @apply justify-around;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .List .Slider .Slider-left, .List .Slider .Slider-right {
+    @apply w-20;
+  }
+  .List .Slider .Slider-left img, .List .Slider .Slider-right img {
+    @apply w-3;
+  }
+  .List .Slider .Slider-dots div {
+    @apply w-2 h-2;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .List .Slider .Slider-dots div {
+    width: .8vw;
+    height: .8vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .List .Slider .Slider-left, .List .Slider .Slider-right {
+    @apply w-16;
+  }
+  .List .Slider .Slider-left img, .List .Slider .Slider-right img {
+    @apply w-2;
+  }
+  .List .Slider .Slider-dots div {
+    margin: .3vw;
+    width: 1vw;
+    height: 1vw;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .List .Slider .Slider-left, .List .Slider .Slider-right {
+    @apply w-12;
+  }
+  .List .Slider .Slider-left img, .List .Slider .Slider-right img {
+    @apply w-3;
+  }
+  .List .Slider .Slider-dots div {
+    margin: .3vw;
+    width: 1.1vw;
+    height: 1.1vw;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .List .List_section {
+    -ms-grid-columns: (100%)[auto-fit];
+        grid-template-columns: repeat(auto-fit, 100%);
+  }
+  .List .List_section .List_item {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=List.css.map */

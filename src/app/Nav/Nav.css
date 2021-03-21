@@ -26,4 +26,41 @@
 .Nav button:focus {
   outline: 1px solid #111517;
 }
+
+@media only screen and (max-width: 984px) {
+  .Nav {
+    padding: 1.5rem 5vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .Nav h1 {
+    word-spacing: .2rem;
+    @apply text-xl;
+  }
+  .Nav button p {
+    @apply text-sm;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .Nav h1 {
+    @apply text-lg;
+  }
+  .Nav button p {
+    @apply text-sm;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .Nav {
+    @apply flex-col;
+  }
+  .Nav h1 {
+    @apply text-2xl mb-2;
+  }
+  .Nav button p {
+    @apply text-base;
+  }
+}
 /*# sourceMappingURL=Nav.css.map */

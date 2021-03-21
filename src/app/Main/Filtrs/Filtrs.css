@@ -87,4 +87,28 @@
 .Filtrs .Options .Options_filters button:focus {
   outline: 1px solid #111517;
 }
+
+@media only screen and (max-width: 984px) {
+  .Filtrs {
+    padding: 0 5vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .Filtrs {
+    @apply flex-col justify-start items-start h-auto;
+  }
+  .Filtrs .Search {
+    @apply mb-5 h-14;
+  }
+  .Filtrs .Options {
+    @apply h-14;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .Filtrs .Search {
+    @apply w-full;
+  }
+}
 /*# sourceMappingURL=Filtrs.css.map */

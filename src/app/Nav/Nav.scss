@@ -20,3 +20,51 @@
         }
     }
 }
+
+
+@media only screen and(max-width: 984px){
+    .Nav{
+        padding: 1.5rem 5vw;
+    }
+}
+
+
+@media only screen and (max-width: 500px){
+    .Nav{
+        h1{
+            word-spacing: .2rem;
+            @apply text-xl;
+        }
+        button{
+            p{
+                @apply  text-sm;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 400px){
+    .Nav{
+        h1{
+            @apply text-lg;
+        }
+        button{
+            p{
+                @apply  text-sm;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 330px){
+    .Nav{
+        @apply flex-col;
+        h1{
+            @apply text-2xl mb-2;
+        }
+        button{
+            p{
+                @apply  text-base;
+            }
+        }
+    }
+}

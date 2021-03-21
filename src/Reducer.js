@@ -1,29 +1,6 @@
-import React , {useReducer} from "react"
+import React from "react"
 
-const FilterCountry = (newState) => {
-    let c;
-    if(newState.filters.length === 0 || newState.filters.length === 5){
-        c = [...newState.country]
-    }else{
-        c = newState.country.filter(a => {
-            return newState.filters.includes(a.region) ? a : null;
-        })
-    }
-    let l = Math.ceil(c.length / 8)
-    let nl = [];
-
-    for(let i = 0 ; i < l; i++){
-        let nn = []
-        for(let j = 0; j < 8; j++){
-            if(c[0]){
-                nn.push(c[0]);
-                c.shift();
-            }
-        }
-        nl.push(nn)
-    }
-    return nl;
-}
+const restContext = React.createContext();
 
 const FliterCountryBySearch = (newState) => {
     let c;
@@ -34,29 +11,31 @@ const FliterCountryBySearch = (newState) => {
             return newState.filters.includes(a.region) ? a : null;
         })
     }
-    let l = Math.ceil(c.length / 8)
-    let nl = [];
+    
     if(newState.search.length > 0){
         let name = `^${newState.search}`
         c = c.filter(a => {
             let reg = new RegExp(name,"gi")
             return reg.test(a.name);
         })
-    }else{
-        c = [...c]
     }
+    let l = Math.ceil(c.length / 8)
+    let nl = [];
     for(let i = 0 ; i < l; i++){
         let nn = []
         for(let j = 0; j < 8; j++){
-            if(c[0]){
+            // if(c[0]){
                 nn.push(c[0]);
                 c.shift();
-            }
+            // }else{
+            //     nn.push({})
+            // }
         }
         if(nn.length > 0){
             nl.push(nn)
         }
     }
+    console.log(nl)
     return nl;
 }
 
@@ -142,7 +121,7 @@ const reducer = (state, action) => {
                 ...state,
                 country : action.value,
             }
-            let cc = FilterCountry(cnewState)
+            let cc = FliterCountryBySearch(cnewState)
             return {
                 ...cnewState,
                 filtredList : cc
@@ -168,8 +147,6 @@ const reducer = (state, action) => {
         default : throw new Error();
     }
 }
-const restContext = React.createContext();
-
 
 
 export {initalState,reducer,restContext }

@@ -59,3 +59,31 @@
         }
     }
 }
+
+
+@media only screen and(max-width: 984px){
+    .Filtrs{
+        padding: 0 5vw;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .Filtrs{
+        @apply flex-col justify-start items-start h-auto;
+        .Search{
+            @apply mb-5 h-14;
+        } 
+        .Options{
+            @apply h-14 ;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 550px){
+    .Filtrs{
+        .Search{
+            @apply w-full;
+        } 
+    }
+}

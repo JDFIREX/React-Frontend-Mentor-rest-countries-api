@@ -1,4 +1,4 @@
-import React , { useContext, useEffect} from "react"
+import React , { useContext, useEffect, useRef } from "react"
 import {restContext} from "./../../../Reducer"
 import searchIcon from "./../../../images/search.svg"
 import Blacksearch from "./../../../images/Blacksearch.svg"
@@ -69,12 +69,17 @@ const Options = () => {
 const Filtrs = () => {
 
     const {state,dispatch} = useContext(restContext);
-    
+    const SearchRef = useRef();
+
+    const HandleClick = () => {
+        SearchRef.current.focus()
+    }
+
     return(
         <div className="Filtrs">
-            <div className="Search">
+            <div className="Search" onClick={HandleClick}>
                 <img src={state.Darkmode ? Blacksearch : searchIcon} alt="search"/>
-                <input  value={state.search} onChange={(e) => dispatch({type : "SEARCH", value : e.target.value })} placeholder="Search for a country..."/>
+                <input ref={SearchRef} value={state.search} onChange={(e) => dispatch({type : "SEARCH", value : e.target.value })} placeholder="Search for a country..."/>
             </div>
             <div className="Options">
                 <button className="Options_container" onClick={() => dispatch({type : "FILTERS"})}>

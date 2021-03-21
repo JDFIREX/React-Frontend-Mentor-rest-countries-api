@@ -26,17 +26,18 @@
 }
 
 .Country .Country_main {
-  @apply w-full mt-20 flex flex-row justify-start items-start;
+  @apply w-full mt-20 flex flex-row justify-between items-start;
 }
 
 .Country .Country_main .Country_flag {
   width: 35rem;
+  min-width: 35rem;
   height: 25rem;
 }
 
 .Country .Country_main .Country_info {
   width: 36rem;
-  @apply flex flex-col items-start justify-start ml-36;
+  @apply flex flex-col items-start justify-start ml-5;
 }
 
 .Country .Country_main .Country_info .header {
@@ -138,5 +139,54 @@
 
 .DarkCountry .Country_main .Country_info .Country_bordes .border .border_p {
   color: #111517;
+}
+
+@media only screen and (max-width: 984px) {
+  .Country {
+    padding: 0 5vw 5rem 5vw;
+  }
+}
+
+@media only screen and (max-width: 1220px) {
+  .Country .Country_main {
+    @apply mt-5 flex-col justify-center items-center;
+  }
+  .Country .Country_main .Country_info {
+    @apply items-center justify-center ml-0;
+    width: 35rem;
+  }
+  .Country .Country_main .Country_info .header h1 {
+    @apply text-center;
+  }
+  .Country .Country_main .Country_info .info .info_right {
+    width: 16rem;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .Country .Country_main .Country_flag {
+    width: 100%;
+    min-width: 100%;
+    height: 62vw;
+  }
+  .Country .Country_main .Country_info {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .Country .back {
+    @apply mt-10;
+  }
+  .Country .Country_main .Country_info .info {
+    @apply flex-col justify-center items-center;
+  }
+  .Country .Country_main .Country_info .info .info_left, .Country .Country_main .Country_info .info .info_right {
+    width: 100%;
+    @apply flex flex-col items-center justify-center;
+  }
+  .Country .Country_main .Country_info .Country_bordes {
+    @apply mt-10 justify-center;
+  }
 }
 /*# sourceMappingURL=Country.css.map */
