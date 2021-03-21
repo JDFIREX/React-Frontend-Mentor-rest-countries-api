@@ -88,7 +88,7 @@ const Filtrs = () => {
                 </button>
                 {
                     state.optionsOpen && (
-                        <Options dispatch={dispatch} />
+                        <Options />
                     )
                 }
             </div>

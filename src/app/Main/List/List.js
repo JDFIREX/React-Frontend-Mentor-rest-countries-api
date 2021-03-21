@@ -29,7 +29,7 @@ const ListItem = React.memo(({x}) => {
 
 
 const Items = () => {
-    const {state,dispatch} = useContext(restContext);
+    const {state} = useContext(restContext);
     const [list, setList] = useState(state.filtredList);
 
     useEffect(() =>{

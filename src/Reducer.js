@@ -24,12 +24,8 @@ const FliterCountryBySearch = (newState) => {
     for(let i = 0 ; i < l; i++){
         let nn = []
         for(let j = 0; j < 8; j++){
-            // if(c[0]){
                 nn.push(c[0]);
                 c.shift();
-            // }else{
-            //     nn.push({})
-            // }
         }
         if(nn.length > 0){
             nl.push(nn)

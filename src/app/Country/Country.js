@@ -14,7 +14,7 @@ const Country = () => {
     
     let {id} = useParams()
     const [CurrentCountry, setCurrentCountry] = useState(null)
-    const {state,dispatch} = useContext(restContext);
+    const {state} = useContext(restContext);
 
     useEffect(() => {
             setCurrentCountry(state.country[id])
